@@ -1,0 +1,44 @@
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 15px;
+  padding: 21px 0 26px;
+  border-top: 1px solid #304456;
+  color: #a7bacb;
+  font-size: 12px;
+}
+
+.footer-signature {
+  display: grid;
+  gap: 5px;
+}
+
+.footer-signature p {
+  margin: 0;
+}
+
+.footer-tagline {
+  color: #c0d8e7;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.footer-copyright {
+  color: #758a9a;
+  font-size: 11px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 26px;
+}
+.footer-links a {
+  color: #d4e1ec;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}

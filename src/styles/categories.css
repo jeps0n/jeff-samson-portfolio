@@ -1,0 +1,126 @@
+.category-list {
+  display: grid;
+  gap: 14px;
+}
+.category-row {
+  --accent: #3183e8;
+  --banner-bg: #112b45;
+  --title-color: #a8d9ff;
+  --rail-highlight: #a5d8ff;
+  --rail-peak: 34%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 30% minmax(0, 70%);
+  min-height: 284px;
+  border-top: 2px solid color-mix(in srgb, var(--accent) 58%, #1a2b3a);
+  border-right: 2px solid color-mix(in srgb, var(--accent) 45%, #1a2b3a);
+  border-bottom: 2px solid color-mix(in srgb, var(--accent) 58%, #1a2b3a);
+  border-left: 0;
+  background: #0b1927;
+  scroll-margin-top: 16px;
+}
+.theme-enterprise {
+  --accent: #247feb;
+  --banner-bg: #102c49;
+  --title-color: #a7dbff;
+  --rail-highlight: #9ad4ff;
+}
+.theme-slots {
+  --accent: #dc933c;
+  --banner-bg: #3b291c;
+  --title-color: #ffe0a0;
+  --rail-highlight: #ffe0a0;
+}
+.theme-board {
+  --accent: #a36cda;
+  --banner-bg: #30233f;
+  --title-color: #dec0ff;
+  --rail-highlight: #dec0ff;
+}
+.theme-arcade {
+  --accent: #2bbaca;
+  --banner-bg: #10353c;
+  --title-color: #a4faff;
+  --rail-highlight: #a4faff;
+}
+
+.theme-slots,
+.theme-board {
+  --symbol-scale: .9;
+}
+
+.category-row::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--rail-highlight) 30%, var(--accent))
+      calc(var(--rail-peak) - 15%),
+    color-mix(in srgb, var(--rail-highlight) 60%, var(--accent))
+      calc(var(--rail-peak) - 7%),
+    var(--rail-highlight) var(--rail-peak),
+    color-mix(in srgb, var(--rail-highlight) 45%, var(--accent))
+      calc(var(--rail-peak) + 12%),
+    var(--accent) calc(var(--rail-peak) + 35%),
+    var(--accent) 100%
+  );
+}
+
+.category-banner {
+  position: relative;
+  min-width: 0;
+  min-height: 280px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #3b4c5a;
+  background:
+    radial-gradient(
+      ellipse at 87% 48%,
+      color-mix(in srgb, var(--accent) 24%, transparent),
+      transparent 52%
+    ),
+    linear-gradient(110deg, #091521 5%, var(--banner-bg) 100%);
+}
+.banner-copy {
+  position: relative;
+  z-index: 1;
+  width: 73%;
+  padding: 25px 20px 25px 27px;
+}
+.banner-copy h2 {
+  color: var(--title-color);
+  margin: 0 0 12px;
+  font-size: clamp(19px, 1.6vw, 26px);
+  line-height: 1.1;
+}
+.banner-copy p {
+  margin: 0;
+  max-width: 270px;
+  color: #c0ceda;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.banner-emblem {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform:
+    translateY(-50%)
+    rotate(-9deg)
+    scale(var(--symbol-scale, 1));
+  color: color-mix(in srgb, var(--accent) 65%, white);
+  opacity: .45;
+  font-size: clamp(80px, 9vw, 165px);
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 8px 20px #0008;
+  user-select: none;
+}

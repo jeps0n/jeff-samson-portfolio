@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Orange Run icon">
+  <defs>
+    <clipPath id="tile">
+      <rect x="10" y="10" width="236" height="236" rx="44" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect x="10" y="10" width="236" height="236" fill="#06111e" />
+    <g fill="none" stroke-linecap="square">
+      <path d="M69 10V246 M187 10V246 M10 69H246 M10 187H246"
+            stroke="#123d63" stroke-width="5" />
+      <path d="M128 10V246 M10 128H246"
+            stroke="#247eb7" stroke-width="6" />
+    </g>
+    <circle cx="128" cy="128" r="76" fill="#ff7a18" />
+  </g>
+</svg>

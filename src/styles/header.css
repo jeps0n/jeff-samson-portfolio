@@ -1,0 +1,103 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 26px 0 24px;
+}
+
+.site-identity {
+  flex-shrink: 0;
+}
+
+.site-identity h1 {
+  margin: 0;
+  color: #e7f3ff;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: .13em;
+  text-shadow: 0 1px 8px #8bbfe51a;
+}
+
+.site-identity p {
+  margin: 6px 0 0;
+  color: #87a9bf;
+  font-size: 11px;
+  letter-spacing: .22em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 26px;
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.main-nav a {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: color .18s ease;
+}
+
+.main-nav a:nth-child(1) {
+  color: #8caac0;
+}
+
+.main-nav a:nth-child(2) {
+  color: #bba17c;
+}
+
+.main-nav a:nth-child(3) {
+  color: #aa98c1;
+}
+
+.main-nav a:nth-child(4) {
+  color: #82b7b9;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: #e7f3ff;
+}
+
+.header-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid #38546a;
+  border-radius: 6px;
+  background: #152838;
+  color: #c9e0ef;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color .18s ease,
+    border-color .18s ease,
+    background-color .18s ease;
+}
+
+.github-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.header-github:hover,
+.header-github:focus-visible {
+  color: #fff;
+  border-color: #62849d;
+  background: #1d3548;
+}

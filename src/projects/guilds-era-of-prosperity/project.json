@@ -1,0 +1,17 @@
+{
+  "title": "Guilds: Era of Prosperity",
+  "category": "board-games",
+  "order": 2,
+  "description": "A two-player strategy game where rival guilds compete through building, expansion, and trade.",
+  "tags": [
+    "React",
+    "TypeScript",
+    "HTML/CSS",
+    "Vite",
+    "Vitest"
+  ],
+  "url": "https://jeps0n.github.io/guilds-era-of-prosperity/",
+  "iconBorder": {
+    "mode": "box"
+  }
+}

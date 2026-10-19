@@ -1,0 +1,83 @@
+.project-launch {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #708394;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #465360, #293642);
+  box-shadow:
+    inset 0 1px 0 #ffffff38,
+    inset 0 -1px 0 #0005,
+    0 3px 6px #0007;
+  color: #dcd8cf;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transform: scale(1);
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+.project-launch-label {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-launch::after {
+  position: absolute;
+  inset: 1px;
+  border-radius: 3px;
+  background: radial-gradient(
+    circle 58px at var(--launch-pointer-x, 50%) var(--launch-pointer-y, 50%),
+    color-mix(in srgb, var(--accent) 88%, white) 0%,
+    color-mix(in srgb, var(--accent) 28%, transparent) var(--proximity-midpoint),
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  content: "";
+  transition: opacity 200ms ease;
+}
+
+.project-launch:hover,
+.project-launch:focus-visible {
+  transform: scale(1.03);
+  border-color: color-mix(in srgb, var(--accent) 65%, white);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 42%, #263545),
+    color-mix(in srgb, var(--accent) 30%, #182b3b)
+  );
+  box-shadow:
+    inset 0 1px 0 #ffffff65,
+    inset 0 -1px 0 #0005,
+    0 4px 9px #0009,
+    0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.project-launch:hover::after,
+.project-launch:focus-visible::after {
+  opacity: 0.88;
+}
+
+.project-launch.is-disabled {
+  cursor: not-allowed;
+}
+
+.project-launch:not(.is-disabled):active {
+  transform: scale(.98);
+  box-shadow:
+    inset 0 2px 4px #0006,
+    0 1px 2px #0006;
+}

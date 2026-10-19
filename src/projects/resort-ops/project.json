@@ -1,0 +1,17 @@
+{
+  "title": "Resort Ops",
+  "category": "business-apps",
+  "order": 0,
+  "description": "A full-stack resort operations dashboard for service requests, assignments, and team workflows.",
+  "tags": [
+    "React",
+    "TypeScript",
+    "Azure",
+    "PostgreSQL",
+    "Supabase"
+  ],
+  "url": "https://mango-mushroom-0db9e4f1e.1.azurestaticapps.net/",
+  "iconBorder": {
+    "mode": "none"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Graveyard Shift",
+  "category": "slot-games",
+  "order": 1,
+  "description": "An eerie truck stop featuring colorful characters, cascading wins, and a mystery bonus that multiplies the next spin.",
+  "tags": [
+    "TypeScript",
+    "PixiJS",
+    "GSAP",
+    "Vite"
+  ],
+  "url": "https://jeps0n.github.io/graveyard-shift/",
+  "iconBorder": {
+    "mode": "shape",
+    "color": "#000000",
+    "width": 1,
+    "opacity": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Halloween Chess",
+  "category": "board-games",
+  "order": 1,
+  "description": "A Halloween-themed chess game with a spooky twist on the classic board.",
+  "tags": [
+    "TypeScript",
+    "Vite",
+    "PixiJS",
+    "GSAP",
+    "chess.js",
+    "Stockfish"
+  ],
+  "url": "https://jeps0n.github.io/halloween-chess/",
+  "iconBorder": {
+    "mode": "shape",
+    "color": "#6A0DAD",
+    "width": 0.25,
+    "opacity": 1
+  }
+}

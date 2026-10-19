@@ -1,0 +1,155 @@
+@media (min-width: 781px) and (max-width: 1200px) {
+  .category-row {
+    --rail-peak: 63%;
+    grid-template-columns: 20% minmax(0, 80%);
+  }
+
+  .category-banner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 9px 16px 16px;
+  }
+
+  .banner-emblem {
+    position: static;
+    order: 0;
+    flex: 0 0 auto;
+    font-size: clamp(50px, 6vw, 72px);
+    line-height: 1;
+    opacity: .45;
+    transform: rotate(-9deg) scale(var(--symbol-scale, 1));
+  }
+
+  .banner-copy {
+    order: 1;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .banner-copy h2 {
+    margin: 0;
+    font-size: clamp(13px, 1.55vw, 18px);
+    line-height: 1.25;
+    overflow-wrap: normal;
+  }
+
+  .banner-copy p {
+    display: none;
+  }
+
+  .project-area {
+    padding: 20px 14px;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .project-info {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 8px;
+  }
+
+  .tech-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 781px) and (max-width: 900px) {
+  .main-nav {
+    gap: 12px;
+  }
+
+  .site-header {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 780px) {
+  .site-shell {
+    width: min(100% - 24px, 560px);
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .main-nav {
+    order: 3;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .category-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .category-banner {
+    min-height: 160px;
+    border-right: 0;
+    border-bottom: 1px solid #3b4c5a;
+  }
+
+  .banner-copy {
+    width: 75%;
+  }
+
+  .banner-emblem {
+    right: 6%;
+    font-size: 100px;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-info {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 8px;
+  }
+
+  .tech-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-area {
+    min-height: 160px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-identity h1 {
+    font-size: 21px;
+  }
+
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .main-nav {
+    gap: 10px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .main-nav a,
+  .header-github,
+  .project-card::before,
+  .project-card::after,
+  .project-launch,
+  .project-launch::after,
+  .preview-area,
+  .project-info {
+    transition: none;
+  }
+}

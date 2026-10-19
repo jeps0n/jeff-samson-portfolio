@@ -1,0 +1,17 @@
+{
+  "title": "Quest of Fortune",
+  "category": "slot-games",
+  "order": 0,
+  "description": "A fantasy slot with server-authoritative spins and shared progressive jackpots.",
+  "tags": [
+    "TypeScript",
+    "PixiJS",
+    "GSAP",
+    "Vite",
+    "Supabase"
+  ],
+  "url": "https://jeps0n.github.io/quest-of-fortune/",
+  "iconBorder": {
+    "mode": "none"
+  }
+}
