@@ -69,7 +69,11 @@ const pngFavicons = import.meta.glob<string>(
 
 const categoryIds = new Set<string>(categories.map(category => category.id))
 
-function optionalUrl(value: unknown, field: string, path: string): string | undefined {
+function optionalUrl(
+  value: unknown,
+  field: string,
+  path: string,
+): string | undefined {
   if (value === undefined || value === '') {
     return undefined
   }

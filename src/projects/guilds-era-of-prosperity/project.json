@@ -12,6 +12,9 @@
   ],
   "url": "https://jeps0n.github.io/guilds-era-of-prosperity/",
   "iconBorder": {
-    "mode": "box"
+    "mode": "box",
+    "color": "#8B5A2B",
+    "width": 1,
+    "opacity": 1
   }
 }

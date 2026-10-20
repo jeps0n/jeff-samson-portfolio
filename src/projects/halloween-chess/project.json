@@ -14,7 +14,7 @@
   "url": "https://jeps0n.github.io/halloween-chess/",
   "iconBorder": {
     "mode": "shape",
-    "color": "#6A0DAD",
+    "color": "#000000",
     "width": 0.25,
     "opacity": 1
   }

@@ -43,6 +43,9 @@ function projectScreenshot(project: Project): string {
   `
 }
 
+const iconSize = 44
+const iconCornerRadius = 7
+
 function projectIcon(project: Project): string {
   if (!project.icon) {
     return `
@@ -53,8 +56,8 @@ function projectIcon(project: Project): string {
     `
   }
 
-  const { mode, color, width, opacity } = project.iconBorder
   const iconUrl = escapeHtml(project.icon)
+  const { mode, color, width, opacity } = project.iconBorder
 
   if (mode === 'none' || width === 0 || opacity === 0) {
     return `
@@ -67,112 +70,111 @@ function projectIcon(project: Project): string {
     `
   }
 
-  // Borders are drawn inward without changing the 44px icon dimensions.
-  const filterId = `icon-border-${project.id}`
-  const borderPaint = `
-    <feFlood
-      flood-color="${color}"
-      flood-opacity="${opacity}"
-      result="borderPaint"
+  const image = `
+    <image
+      href="${iconUrl}"
+      width="${iconSize}"
+      height="${iconSize}"
+      preserveAspectRatio="xMidYMid meet"
     />
-    <feComposite
-      in="borderPaint"
-      in2="borderAlpha"
-      operator="in"
-      result="border"
-    />
-    <feMerge>
-      <feMergeNode in="SourceGraphic" />
-      <feMergeNode in="border" />
-    </feMerge>
   `
 
-  // Alpha erosion creates the shape border inside the visible icon.
-  const shapeFilter = `
-    <filter
-      id="${filterId}"
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-      color-interpolation-filters="sRGB"
-    >
-      <feMorphology
-        in="SourceAlpha"
-        operator="erode"
-        radius="${width}"
-        result="innerAlpha"
-      />
-      <feComposite
-        in="SourceAlpha"
-        in2="innerAlpha"
-        operator="out"
-        result="borderAlpha"
-      />
-      ${borderPaint}
-    </filter>
-  `
+  const borderId = `icon-border-${project.id}`
 
-  // The box border follows the same inward sizing rule.
-  const innerSize = Math.max(0, 44 - 2 * width)
-  const innerRadius = Math.max(0, 7 - width)
-  const boxMask = innerSize > 0
-    ? `
-      <mask id="${filterId}" maskUnits="userSpaceOnUse">
-        <rect width="44" height="44" rx="7" fill="white" />
-        <rect
-          x="${width}"
-          y="${width}"
-          width="${innerSize}"
-          height="${innerSize}"
-          rx="${innerRadius}"
-          fill="black"
-        />
-      </mask>
-    `
-    : `
-      <mask id="${filterId}" maskUnits="userSpaceOnUse">
-        <rect width="44" height="44" rx="7" fill="white" />
-      </mask>
-    `
+  if (mode === 'box') {
+    const halfWidth = width / 2
+    const strokeSize = Math.max(0, iconSize - width)
+    const strokeRadius = Math.max(0, iconCornerRadius - halfWidth)
 
-  const definitions = mode === 'shape' ? shapeFilter : boxMask
-  const imageFilter = mode === 'shape' ? `filter="url(#${filterId})"` : ''
-  const boxBorder = mode === 'box'
-    ? `
-      <rect
-        width="44"
-        height="44"
-        fill="${color}"
-        fill-opacity="${opacity}"
-        mask="url(#${filterId})"
-      />
+    return `
+      <svg
+        class="project-icon"
+        viewBox="0 0 ${iconSize} ${iconSize}"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <clipPath id="${borderId}" clipPathUnits="userSpaceOnUse">
+            <rect
+              width="${iconSize}"
+              height="${iconSize}"
+              rx="${iconCornerRadius}"
+            />
+          </clipPath>
+        </defs>
+        <g clip-path="url(#${borderId})">
+          ${image}
+          <rect
+            x="${halfWidth}"
+            y="${halfWidth}"
+            width="${strokeSize}"
+            height="${strokeSize}"
+            rx="${strokeRadius}"
+            fill="none"
+            stroke="${color}"
+            stroke-width="${width}"
+            stroke-opacity="${opacity}"
+          />
+        </g>
+      </svg>
     `
-    : ''
+  }
 
   return `
     <svg
       class="project-icon"
-      viewBox="0 0 44 44"
+      viewBox="0 0 ${iconSize} ${iconSize}"
       aria-hidden="true"
       focusable="false"
     >
-      <defs>${definitions}</defs>
-      <image
-        href="${iconUrl}"
-        width="44"
-        height="44"
-        preserveAspectRatio="xMidYMid meet"
-        ${imageFilter}
-      />
-      ${boxBorder}
+      <defs>
+        <filter
+          id="${borderId}"
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          color-interpolation-filters="sRGB"
+        >
+          <feMorphology
+            in="SourceAlpha"
+            operator="erode"
+            radius="${width}"
+            result="innerAlpha"
+          />
+          <feComposite
+            in="SourceAlpha"
+            in2="innerAlpha"
+            operator="out"
+            result="borderAlpha"
+          />
+          <feFlood
+            flood-color="${color}"
+            flood-opacity="${opacity}"
+            result="borderPaint"
+          />
+          <feComposite
+            in="borderPaint"
+            in2="borderAlpha"
+            operator="in"
+          />
+        </filter>
+      </defs>
+      ${image}
+      <g filter="url(#${borderId})">
+        ${image}
+      </g>
     </svg>
   `
 }
 
 function projectLaunch(project: Project): string {
   if (!project.url) {
-    return '<span class="project-launch is-disabled" aria-disabled="true"><span class="project-launch-label">Launch</span></span>'
+    return `
+      <span class="project-launch is-disabled" aria-disabled="true">
+        <span class="project-launch-label">Launch</span>
+      </span>
+    `
   }
 
   return `
