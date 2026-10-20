@@ -13,7 +13,7 @@ A portfolio of applications and interactive experiences.
     <col width="33.33%">
   </colgroup>
   <thead>
-    <tr><th colspan="2" align="left"><h3>BUSINESS APPLICATIONS</h3></th></tr>
+    <tr><th colspan="2" align="left"><h3>WEB APPLICATIONS</h3></th></tr>
   </thead>
   <tbody>
     <tr>
@@ -32,6 +32,10 @@ A portfolio of applications and interactive experiences.
     <tr>
       <td><strong>Graveyard Shift</strong></td>
       <td><a href="https://jeps0n.github.io/graveyard-shift/">Live Demo</a> · <a href="https://github.com/jeps0n/graveyard-shift">Repo</a></td>
+    </tr>
+    <tr>
+      <td><strong>Out Yonder</strong></td>
+      <td><a href="https://jeps0n.github.io/out-yonder/">Live Demo</a> · <a href="https://github.com/jeps0n/out-yonder">Repo</a></td>
     </tr>
   </tbody>
   <thead>

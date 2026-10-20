@@ -1,10 +1,10 @@
 export const categories = [
   {
     id: 'business-apps',
-    name: 'Enterprise Software',
+    name: 'Web Applications',
     theme: 'enterprise',
     symbol: '⊞',
-    description: 'Applications, platforms, and practical software solutions.',
+    description: 'Interactive tools, data-driven dashboards, and productivity software.',
   },
   {
     id: 'slot-games',

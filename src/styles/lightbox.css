@@ -40,9 +40,13 @@
   border-radius: 50%;
   background: #24384a;
   color: #f0f6fb;
-  font-size: 24px;
-  line-height: 1;
   cursor: pointer;
+}
+
+.screenshot-dialog-close-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
 
 .screenshot-dialog-close:hover,

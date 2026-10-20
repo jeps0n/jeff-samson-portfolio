@@ -332,7 +332,20 @@ app.innerHTML = `
       class="screenshot-dialog-close"
       type="button"
       aria-label="Close screenshot preview"
-    >×</button>
+    >
+      <svg
+        class="screenshot-dialog-close-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M6 6L18 18M18 6L6 18" />
+      </svg>
+    </button>
     <img class="screenshot-dialog-image" alt="" />
   </dialog>
 `

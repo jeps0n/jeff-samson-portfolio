@@ -1,0 +1,16 @@
+{
+  "title": "Out Yonder",
+  "category": "slot-games",
+  "order": 2,
+  "description": "A 3\u00d73 slot pairing outcome-first math with authentic random reel presentation and a spirit of cosmic exploration.",
+  "tags": [
+    "TypeScript",
+    "PixiJS",
+    "GSAP",
+    "Vite"
+  ],
+  "url": "https://jeps0n.github.io/out-yonder/",
+  "iconBorder": {
+    "mode": "none"
+  }
+}
