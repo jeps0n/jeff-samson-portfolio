@@ -147,7 +147,12 @@ function parseIconBorder(value: unknown, path: string): IconBorder {
     throw new Error(`${path}: iconBorder.opacity must be between 0 and 1`)
   }
 
-  return { mode, color, width, opacity }
+  return {
+    mode,
+    color,
+    width,
+    opacity,
+  }
 }
 
 function loadProject(path: string, data: ProjectMetadata): Project {
@@ -191,7 +196,9 @@ function loadProject(path: string, data: ProjectMetadata): Project {
     tags: (data.tags as string[] | undefined) ?? [],
     url: optionalUrl(data.url, 'url', path),
     cover: covers[`${assetPath}cover.webp`],
-    icon: svgFavicons[`${assetPath}favicon.svg`] ?? pngFavicons[`${assetPath}favicon.png`],
+    icon:
+      svgFavicons[`${assetPath}favicon.svg`] ??
+      pngFavicons[`${assetPath}favicon.png`],
     iconBorder: parseIconBorder(data.iconBorder, path),
   }
 }

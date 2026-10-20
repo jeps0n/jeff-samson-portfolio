@@ -35,11 +35,17 @@ function projectScreenshot(project: Project): string {
   }
 
   return `
-    <img
-      src="${project.cover}"
-      alt="Screenshot of ${escapeHtml(project.title)}"
-      loading="lazy"
-    />
+    <button
+      class="preview-trigger"
+      type="button"
+      aria-label="Enlarge screenshot of ${escapeHtml(project.title)}"
+    >
+      <img
+        src="${escapeHtml(project.cover)}"
+        alt="Screenshot of ${escapeHtml(project.title)}"
+        loading="lazy"
+      />
+    </button>
   `
 }
 
@@ -172,7 +178,7 @@ function projectLaunch(project: Project): string {
   if (!project.url) {
     return `
       <span class="project-launch is-disabled" aria-disabled="true">
-        <span class="project-launch-label">Launch</span>
+        <span class="project-launch-label">LAUNCH</span>
       </span>
     `
   }
@@ -183,7 +189,7 @@ function projectLaunch(project: Project): string {
       href="${escapeHtml(project.url)}"
       target="_blank"
       rel="noopener noreferrer"
-    ><span class="project-launch-label">Launch</span></a>
+    ><span class="project-launch-label">LAUNCH</span></a>
   `
 }
 
@@ -320,6 +326,15 @@ app.innerHTML = `
       </div>
     </footer>
   </div>
+
+  <dialog class="screenshot-dialog" aria-label="Expanded project screenshot">
+    <button
+      class="screenshot-dialog-close"
+      type="button"
+      aria-label="Close screenshot preview"
+    >×</button>
+    <img class="screenshot-dialog-image" alt="" />
+  </dialog>
 `
 
 function enablePointerIllumination(
@@ -356,3 +371,54 @@ enablePointerIllumination(
   '--launch-pointer-x',
   '--launch-pointer-y',
 )
+
+function enableScreenshotPreview(): void {
+  const dialog = document.querySelector<HTMLDialogElement>(
+    '.screenshot-dialog',
+  )
+  const image = dialog?.querySelector<HTMLImageElement>(
+    '.screenshot-dialog-image',
+  )
+  const closeButton = dialog?.querySelector<HTMLButtonElement>(
+    '.screenshot-dialog-close',
+  )
+
+  if (!dialog || !image || !closeButton) {
+    return
+  }
+
+  const triggers = document.querySelectorAll<HTMLButtonElement>(
+    '.preview-trigger',
+  )
+
+  for (const trigger of triggers) {
+    trigger.addEventListener('click', () => {
+      const screenshot = trigger.querySelector('img')
+
+      if (!screenshot) {
+        return
+      }
+
+      image.src = screenshot.currentSrc || screenshot.src
+      image.alt = screenshot.alt
+      dialog.showModal()
+    })
+  }
+
+  closeButton.addEventListener('click', () => {
+    dialog.close()
+  })
+
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) {
+      dialog.close()
+    }
+  })
+
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src')
+    image.alt = ''
+  })
+}
+
+enableScreenshotPreview()
