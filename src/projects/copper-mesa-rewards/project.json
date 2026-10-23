@@ -1,0 +1,14 @@
+{
+  "title": "Copper Mesa Rewards",
+  "category": "business-apps",
+  "order": 1,
+  "description": "An interactive casino loyalty kiosk featuring tier-based rewards, promotions, and membership management.",
+  "tags": [
+    "TypeScript",
+    "Vite"
+  ],
+  "url": "https://jeps0n.github.io/copper-mesa-rewards/",
+  "iconBorder": {
+    "mode": "none"
+  }
+}

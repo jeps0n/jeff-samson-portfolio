@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 5 92 66">
+  <path
+    d="M9 65 33 12 54 46 72 25 92 65 Z"
+    fill="#211b19"
+    stroke="#b87333"
+    stroke-width="7"
+    stroke-linecap="square"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M33 12 54 46 72 25"
+    fill="none"
+    stroke="#d8b77a"
+    stroke-width="2"
+  />
+</svg>
